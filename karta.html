@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Форма</title>
+        <meta charset="utf-8">
+        <style>
+            button {
+                background-color: aqua;
+            }
+
+            b {
+                margin-bottom: 6px;
+            }
+        </style>
+        <script>
+            function ValidateForm() {
+                const randomNumber = Math.ceil(Math.random() * 999999999);
+                var age = document.getElementById("age").value;
+                var surname = document.getElementById("surname").value;
+                var name = document.getElementById("name").value;
+                var number = document.getElementById("number").value;
+
+                if (age === "" || surname === "" || name === "" || number === "") {
+                    alert('Пожалуйста, заполните все поля');
+                    return false;
+                } else if (age < 18) {
+                    alert('Для регистрации вам должно быть больше 18 лет!!!');
+                    return false;
+                } else {
+                    alert(`Ваша бонусная карта \n Фамилия: ${surname} \n Имя: ${name} \n Возраст: ${age} \n Номер карты: ${randomNumber}`)
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Заполните анкету</h1>
+        <form>
+            <b>
+                Фамилия: <input type="text" placeholder="Иванов" id="surname"> <br><br>
+                
+                Имя: <input type="text" placeholder="Иван" id="name"> <br><br>
+
+                Телефон: <input type="text" id="number" value="+7" maxlength="12"> <br><br>
+
+                Возраст: <input type="text" id="age"> <br><br>
+
+                <button type="button" onclick="ValidateForm()">Оформить карту</button><input type="reset" value="Очистить" />
+            </b>
+        </form>
+    </body>
+</html>
